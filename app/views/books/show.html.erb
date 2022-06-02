@@ -1,24 +1,26 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= t('activerecord.views.headings.show') %></h1>
+
 <p>
-  <strong>Title:</strong>
+<strong><%= t('activerecord.views.labels.title') %></strong>
   <%= @book.title %>
 </p>
 
 <p>
-  <strong>Memo:</strong>
+  <strong><%= t('activerecord.views.labels.memo') %></strong>
   <%= @book.memo %>
 </p>
 
 <p>
-  <strong>Author:</strong>
+  <strong><%= t('activerecord.views.labels.author') %></strong>
   <%= @book.author %>
 </p>
 
 <p>
-  <strong>Picture:</strong>
+  <strong><%= t('activerecord.views.labels.picture') %></strong>
   <%= image_tag(@book.picture_url) if @book.picture.present? %>
 </p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<%= link_to t('activerecord.views.buttons.edit'), edit_book_path(@book) %> |
+<%= link_to t('activerecord.views.buttons.back'), books_path %>

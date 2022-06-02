@@ -9,7 +9,9 @@ Bundler.require(*Rails.groups)
 module BooksApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    config.load_defaults 6.0
+    config.time_zone = "Tokyo"
+    config.i18n.default_locale = :ja
 
     # Configuration for the application, engines, and railties goes here.
     #

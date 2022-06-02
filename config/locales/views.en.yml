@@ -30,4 +30,30 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    views:
+      headings:
+        index: Bookshlef
+        new: New Book
+        show: Book detail
+        edit: Modify book detail
+      labels:
+        title: Title
+        memo: Note
+        author: Author
+        picture: Picture
+        actions: Actions
+      buttons:
+        create: Create new
+        edit: Modify
+        back: Back
+        show: Show
+        destroy: Destroy
+      notices:
+        save: "%{title} was successfully created."
+        update: "%{title} was successfully updated."
+        destroy: "%{title} was successfully destroyed."
+      error:
+        message:
+          one: "%{count} error prohibited this book from being saved."
+          other: "%{count} errors prohibited this book from being saved."

@@ -26,3 +26,5 @@ ja:
         message: "%{title}を削除します。よろしいですか？"
       error:
         message: "%{count}件のエラーがあり、保存できませんでした"
+      toggle:
+        lang: '英語表示に切り替える'

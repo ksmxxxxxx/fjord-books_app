@@ -30,32 +30,33 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  activerecord:
-    views:
-      headings:
-        index: Bookshlef
-        new: New Book
-        show: Book detail
-        edit: Modify book detail
-      labels:
-        title: Title
-        memo: Note
-        author: Author
-        picture: Picture
-        actions: Actions
-      buttons:
-        create: Create new
-        edit: Modify
-        back: Back
-        show: Show
-        destroy: Destroy
-      notices:
-        save: "%{title} was successfully created."
-        update: "%{title} was successfully updated."
-        destroy: "%{title} was successfully destroyed."
-      error:
-        message:
-          one: "%{count} error prohibited this book from being saved."
-          other: "%{count} errors prohibited this book from being saved."
-      toggle:
-        lang: "Toggle display to Japanese."
+  views:
+    headings:
+      index: Bookshlef
+      new: New Book
+      show: Book detail
+      edit: Modify book detail
+    labels:
+      title: Title
+      memo: Note
+      author: Author
+      picture: Picture
+      actions: Actions
+    buttons:
+      create: Create new
+      edit: Modify
+      back: Back
+      show: Show
+      destroy: Destroy
+    notices:
+      create: "%{title} was successfully created."
+      update: "%{title} was successfully updated."
+      destroy: "%{title} was successfully destroyed."
+    confirm:
+      message: "Destoroy the %{title}。Are you sure?"
+    error:
+      message:
+        one: "%{count} error prohibited this book from being saved."
+        other: "%{count} errors prohibited this book from being saved."
+    toggle:
+      lang: "Toggle display to Japanese."

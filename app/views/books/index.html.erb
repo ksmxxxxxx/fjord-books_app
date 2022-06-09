@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= t('activerecord.views.headings.index') %></h1>
+<h1><%= t('views.headings.index') %></h1>
 
 <table>
   <thead>
     <tr>
-      <th><%= t('activerecord.views.labels.title') %></th>
-      <th><%= t('activerecord.views.labels.memo') %></th>
-      <th><%= t('activerecord.views.labels.author') %></th>
-      <th><%= t('activerecord.views.labels.picture') %></th>
-      <th colspan="3"><%= t('activerecord.views.labels.actions') %></th>
+      <th><%= t('views.labels.title') %></th>
+      <th><%= t('views.labels.memo') %></th>
+      <th><%= t('views.labels.author') %></th>
+      <th><%= t('views.labels.picture') %></th>
+      <th colspan="3"><%= t('views.labels.actions') %></th>
     </tr>
   </thead>
 
@@ -20,9 +20,9 @@
         <td><%= book.memo %></td>
         <td><%= book.author %></td>
         <td><%= image_tag(book.picture_url, width: '100') if book.picture.present? %></td>
-        <td><%= link_to t('activerecord.views.buttons.show'), book %></td>
-        <td><%= link_to t('activerecord.views.buttons.edit'), edit_book_path(book) %></td>
-        <td><%= link_to t('activerecord.views.buttons.destroy'), book, method: :delete, data: { confirm: t('activerecord.views.confirm.message', title: book.title) } %></td>
+        <td><%= link_to t('views.buttons.show'), book %></td>
+        <td><%= link_to t('views.buttons.edit'), edit_book_path(book) %></td>
+        <td><%= link_to t('views.buttons.destroy'), book, method: :delete, data: { confirm: t('views.confirm.message', title: book.title) } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to t('activerecord.views.buttons.create'), new_book_path %>
+<%= link_to t('views.buttons.create'), new_book_path %>

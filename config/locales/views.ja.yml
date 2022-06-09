@@ -1,30 +1,29 @@
 ja:
-  activerecord:
-    views:
-      headings:
-        index: 本棚
-        new: 本を新規登録
-        show: 本の情報
-        edit: 本の情報を編集
-      labels:
-        title: タイトル
-        memo: メモ
-        author: 著者
-        picture: 書影
-        actions: 操作
-      buttons:
-        create: 本を新規登録
-        edit: 本の情報を編集
-        back: 前の画面へ戻る
-        show: 本の情報
-        destroy: 本の情報を削除
-      notices:
-        save: "%{title}を登録しました"
-        update: "%{title}の情報を更新しました"
-        destroy: "%{title}の情報を削除しました"
-      confirm:
-        message: "%{title}を削除します。よろしいですか？"
-      error:
-        message: "%{count}件のエラーがあり、保存できませんでした"
-      toggle:
-        lang: '英語表示に切り替える'
+  views:
+    headings:
+      index: 本棚
+      new: 本を新規登録
+      show: 本の情報
+      edit: 本の情報を編集
+    labels:
+      title: タイトル
+      memo: メモ
+      author: 著者
+      picture: 書影
+      actions: 操作
+    buttons:
+      create: 本を新規登録
+      edit: 本の情報を編集
+      back: 前の画面へ戻る
+      show: 本の情報
+      destroy: 本の情報を削除
+    notices:
+      create: "%{title}を登録しました"
+      update: "%{title}の情報を更新しました"
+      destroy: "%{title}の情報を削除しました"
+    confirm:
+      message: "%{title}を削除します。よろしいですか？"
+    error:
+      message: "%{count}件のエラーがあり、保存できませんでした"
+    toggle:
+      lang: '英語表示に切り替える'

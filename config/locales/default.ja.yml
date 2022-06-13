@@ -33,7 +33,7 @@ ja:
     message: "%{title}を削除します。よろしいですか？"
 
   toggle:
-    lang: '英語表示に切り替える'
+    lang: "Toggle display to Japanese."
 
   date:
     abbr_day_names:

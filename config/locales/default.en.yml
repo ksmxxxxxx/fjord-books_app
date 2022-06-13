@@ -60,4 +60,4 @@ en:
   confirm:
     message: "Destoroy the %{title}. Are you sure?"
   toggle:
-    lang: "Toggle display to Japanese."
+    lang: '英語表示に切り替える'

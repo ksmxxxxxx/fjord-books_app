@@ -1,5 +1,5 @@
 en:
-  books:
+  page_headline:
     index:
       title: "%{name} list"
     new:

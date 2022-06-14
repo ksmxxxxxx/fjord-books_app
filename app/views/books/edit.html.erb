@@ -1,6 +1,6 @@
-<h1>Editing Book</h1>
+<h1><%= t('page_headline.edit.title', name: Book.model_name.human.downcase) %></h1>
 
 <%= render 'form', book: @book %>
 
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+<%= link_to t('buttons.show', name: Book.model_name.human), @book %> |
+<%= link_to t('buttons.back', name: Book.model_name.human), books_path %>

@@ -1,0 +1,10 @@
+ja:
+  page_headline:
+    index:
+      title: "%{name}一覧"
+    new:
+      title: "%{name}新規登録"
+    show:
+      title: "%{name}情報"
+    edit:
+      title: "%{name}情報を編集"

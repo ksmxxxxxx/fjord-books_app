@@ -30,4 +30,34 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      book: Book
+    attributes:
+      book:
+        title: Title
+        memo: Note
+        author: Author
+        picture: Picture
+        actions: Actions
+    errors:
+      messages:
+        invalid:
+          one: "%{count} error prohibited this book from being saved."
+          other: "%{count} errors prohibited this book from being saved."
+
+  buttons:
+    create: Create new
+    edit: Modify
+    back: Back
+    show: Show
+    destroy: Destroy
+
+  notices:
+    create: "%{title} was successfully created."
+    update: "%{title} was successfully updated."
+    destroy: "%{title} was successfully destroyed."
+  confirm:
+    message: "Destoroy the %{title}. Are you sure?"
+  toggle:
+    lang: '英語表示に切り替える'

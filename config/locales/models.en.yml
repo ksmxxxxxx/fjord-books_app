@@ -1,0 +1,10 @@
+en:
+  page_headline:
+    index:
+      title: "%{name} list"
+    new:
+      title: "New %{name}"
+    show:
+      title: "%{name} detail"
+    edit:
+      title: "Modify %{name} detail"

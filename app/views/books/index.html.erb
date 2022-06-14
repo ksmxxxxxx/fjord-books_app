@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Books</h1>
+<h1><%= t('page_headline.index.title', name: Book.model_name.human) %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Memo</th>
-      <th>Author</th>
-      <th>Picture</th>
-      <th colspan="3"></th>
+      <th><%= Book.human_attribute_name(:title) %></th>
+      <th><%= Book.human_attribute_name(:memo) %></th>
+      <th><%= Book.human_attribute_name(:author) %></th>
+      <th><%= Book.human_attribute_name(:picture) %></th>
+      <th colspan="3"><%= Book.human_attribute_name(:actions) %></th>
     </tr>
   </thead>
 
@@ -19,10 +19,10 @@
         <td><%= book.title %></td>
         <td><%= book.memo %></td>
         <td><%= book.author %></td>
-        <td><%= book.picture %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= image_tag(book.picture_url, width: '100') if book.picture.present? %></td>
+        <td><%= link_to t('buttons.show', name: Book.model_name.human), book %></td>
+        <td><%= link_to t('buttons.edit', name: Book.model_name.human), edit_book_path(book) %></td>
+        <td><%= link_to t('buttons.destroy', name: Book.model_name.human), book, method: :delete, data: { confirm: t('confirm.message', title: book.title) } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path %>
+<%= link_to t('buttons.create', name: Book.model_name.human), new_book_path %>

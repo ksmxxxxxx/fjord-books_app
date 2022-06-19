@@ -2,6 +2,7 @@
 
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resources)
     books_path
@@ -9,5 +10,11 @@ class ApplicationController < ActionController::Base
 
   def after_sign_out_path_for(resources)
     new_user_session_path
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name zipcode address description])
   end
 end

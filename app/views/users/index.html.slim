@@ -1,0 +1,10 @@
+h1
+  | ユーザー一覧
+  
+- @users.each do |user|
+  div
+    = user.id
+    = user.email
+    = user.created_at
+    - if current_user
+      = link_to('詳細', user_path(user.id))

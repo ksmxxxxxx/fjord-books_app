@@ -153,14 +153,8 @@ GEM
     nokogiri (1.13.6)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-<<<<<<< HEAD
     parallel (1.22.1)
     parser (3.1.2.0)
-=======
-    orm_adapter (0.5.0)
-    parallel (1.22.0)
-    parser (3.1.1.0)
->>>>>>> c08e2aa (:construction: Can signup and signing via devise)
       ast (~> 2.4.1)
     public_suffix (4.0.7)
     puma (5.6.4)
@@ -245,6 +239,9 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    slim (4.1.0)
+      temple (>= 0.7.6, < 0.9)
+      tilt (>= 2.0.6, < 2.1)
     spring (4.0.0)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
@@ -255,7 +252,11 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
     ssrf_filter (1.0.7)
+<<<<<<< HEAD
     strscan (3.0.3)
+=======
+    temple (0.8.2)
+>>>>>>> a175192 (Add slim template)
     thor (1.2.1)
     tilt (2.0.10)
     timeout (0.2.0)
@@ -313,6 +314,7 @@ DEPENDENCIES
   rubocop-rails
   sass-rails (>= 6)
   selenium-webdriver (< 4)
+  slim
   spring
   sqlite3 (~> 1.4)
   turbolinks (~> 5)

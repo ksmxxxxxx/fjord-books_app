@@ -1,10 +1,14 @@
-h1
-  | ユーザー一覧
-  
-- @users.each do |user|
-  div
-    = user.id
-    = user.email
-    = user.created_at
-    - if current_user
-      = link_to('詳細', user_path(user.id))
+.container
+  .row
+    .col-12
+      h1 = User.model_name.human
+        
+      - @users.each do |user|
+        .card.my-3
+          .card-body
+            h2.h5.card-title = user.name
+            h3.h6.card-subtitle.text-muted = user.created_at
+            p.card-text = user.description
+          - if current_user
+            .card-footer
+              = link_to('詳細', user_path(user.id), class: 'btn btn-primary float-end')

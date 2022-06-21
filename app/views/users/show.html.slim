@@ -1,0 +1,13 @@
+.container
+  .row
+    .col-12
+      h1 アカウント情報
+      p= @user.name
+      p= @user.description
+      p= @user.email
+      p= @user.zipcode
+      p= @user.address
+      .dgrid.gap-2.d-flex.justify-content-between
+        = link_to('戻る', users_path, class: 'btn btn-outline-secondary')
+        - if current_user == @user
+          = link_to('編集', edit_user_registration_path, class: 'btn btn-primary')

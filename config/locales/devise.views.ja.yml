@@ -25,7 +25,7 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
-        user_name: ユーザー名
+        name: ユーザー名
         address: 住所
         zipcode: 郵便番号
         description: 自己紹介

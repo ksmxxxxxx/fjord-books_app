@@ -229,6 +229,7 @@ en:
       delete_confirm: "Are you sure?"
       title_new: "New %{name}"
       title_edit: "Editing %{name}"
+      actions: Actions
   controllers:
     common:
       notice_create: "%{name} was successfully created."

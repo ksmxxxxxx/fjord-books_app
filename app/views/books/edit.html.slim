@@ -4,6 +4,5 @@
       h1= t('views.common.title_edit', name: Book.model_name.human)
       = render 'form', book: @book
       .d-flex.justify-content-start
-        span= link_to t('views.common.show'), @book
-        span.mx-3 | 
-        span= link_to t('views.common.back'), books_path
+        = link_to t('views.common.show'), @book, class: 'btn btn-outline-primary me-3'
+        = link_to t('views.common.back'), books_path, class: 'btn btn-outline-secondary'

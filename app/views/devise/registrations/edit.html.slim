@@ -41,7 +41,6 @@ h2= t('.title', resource: resource.model_name.human)
       | (
       = t('.we_need_your_current_password_to_confirm_your_changes')
       | )
-    br
     = f.password_field :current_password, autocomplete: 'current-password', class: 'form-control'
   .actions
     = f.submit t('.update'), class: 'btn btn-primary'

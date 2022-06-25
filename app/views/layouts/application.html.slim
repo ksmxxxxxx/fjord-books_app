@@ -12,9 +12,15 @@ html
   body
     = render 'shared/header'
     - if notice
-      p#notice
-        = notice
+      .container
+        .row
+          .col-12
+            .alert.alert-success role='alert'
+              = notice
     - if alert
-      p#alert
-        = alert
+      .container
+        .row
+          .col-12
+            .alert.alert-danger role='alert'
+              = alert
     = yield

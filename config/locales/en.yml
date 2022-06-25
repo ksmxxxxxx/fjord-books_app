@@ -215,6 +215,7 @@ en:
     pm: pm
   views:
     common:
+      sign_out: Sign Out
       actions: Actions
       show: Show
       edit: Edit

@@ -207,6 +207,7 @@ ja:
     pm: 午後
   views:
     common:
+      sign_out: ログアウト
       actions: 操作
       show: 詳細
       edit: 編集

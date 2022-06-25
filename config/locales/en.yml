@@ -215,12 +215,15 @@ en:
     pm: pm
   views:
     common:
+      actions: Actions
       show: Show
       edit: Edit
       destroy: Destroy
       new: "New record"
       back: Back
       delete_confirm: "Are you sure?"
+      title_index: "%{name} list"
+      title_show: "%{name}'s detail"
       title_new: "New %{name}"
       title_edit: "Editing %{name}"
   controllers:

@@ -9,3 +9,10 @@ en:
         memo: Memo  #g
         picture: Picture  #g
         title: Title  #g
+      user:
+        name: Name
+        email: Mail address
+        address: Address
+        zipcode: Zipcode
+        description: Description
+        registered_date: Registered date

@@ -1,22 +1,16 @@
-.container
-  .row
-    .col-12
-      p#notice
-        = notice
-      h1= t('views.common.title_show', name: Book.model_name.human)
-      dl
-        dt= Book.human_attribute_name(:title)
-        dd= @book.title
-      dl
-        dt= Book.human_attribute_name(:memo)
-        dd= @book.memo
-      dl
-        dt= Book.human_attribute_name(:author)
-        dd= @book.author
-      dl
-        dt= Book.human_attribute_name(:picture)
-        dd= image_tag(@book.picture_url) if @book.picture.present?
-      .d-flex.justify-content-start
-        span= link_to t('views.common.edit'), edit_book_path(@book)
-        span.mx-3 |
-        span= link_to t('views.common.back'), books_path
+h1= t('views.common.title_show', name: Book.model_name.human)
+dl
+  dt= Book.human_attribute_name(:title)
+  dd= @book.title
+dl
+  dt= Book.human_attribute_name(:memo)
+  dd= @book.memo
+dl
+  dt= Book.human_attribute_name(:author)
+  dd= @book.author
+dl
+  dt= Book.human_attribute_name(:picture)
+  dd= image_tag(@book.picture_url) if @book.picture.present?
+.d-flex.justify-content-between
+  = link_to t('views.common.back'), books_path, class: 'btn btn-outline-secondary'
+  = link_to t('views.common.edit'), edit_book_path(@book), class: 'btn btn-primary'

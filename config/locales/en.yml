@@ -214,6 +214,12 @@ en:
       short: "%d %b %H:%M"
     pm: pm
   views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
     common:
       show: Show
       edit: Edit
@@ -223,6 +229,7 @@ en:
       delete_confirm: "Are you sure?"
       title_new: "New %{name}"
       title_edit: "Editing %{name}"
+      actions: Actions
   controllers:
     common:
       notice_create: "%{name} was successfully created."

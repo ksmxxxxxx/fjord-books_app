@@ -1,14 +1,13 @@
 = form_with(model: book, local: true) do |form|
   - if book.errors.any?
-    #error_explanation
+    .alert.alert-danger
 
-    h2
-      = pluralize(book.errors.count, "error")
-      |  prohibited this book from being saved:
-    ul
-      - book.errors.full_messages.each do |message|
-        li
-          = message
+      h2.h6.fw-bold
+        = t('activerecord.errors.messages.not_saved', count: book.errors.count)
+      ul.mb-0
+        - book.errors.full_messages.each do |message|
+          li
+            = message
 
   .mb-3
     = form.label :title, class: 'form-label'

@@ -60,6 +60,7 @@ gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp'
 
+gem 'active_storage_validations'
 gem 'carrierwave'
 gem 'devise'
 gem 'devise-i18n'

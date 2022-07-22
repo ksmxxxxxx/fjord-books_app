@@ -32,6 +32,14 @@ p
   - if @user.avatar.attached?
     br
     = image_tag @user.avatar.variant(resize_to_fill: [150, 150])
+
+p
+  | Following&nbsp;:&nbsp;
+  = @user.followings.count
+p
+  | Follower&nbsp;:&nbsp;
+  = @user.followers.count
+
 - if current_user == @user
   = link_to t('views.common.edit'), edit_user_registration_path
   |  | 

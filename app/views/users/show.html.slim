@@ -34,6 +34,10 @@ p
     = image_tag @user.avatar.variant(resize_to_fill: [150, 150])
 
 p
+  = button_to 'Follow', followings_path, method: :post
+  = button_to 'Unfollow', following_path, method: :destroy
+
+p
   | Following&nbsp;:&nbsp;
   = @user.followings.count
 p

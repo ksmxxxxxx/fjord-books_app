@@ -23,4 +23,16 @@ class User < ApplicationRecord
   has_many :followers,
            through: :passive_relatioships,
            source: :follower
+
+  def follow(followed_user_id)
+    active_relationships.create(followed_id: followed_user_id)
+  end
+
+  def unfollow(followed_user_id)
+    active_relationships.find_by(followed_id: followed_user_id).destroy
+  end
+
+  def following?(user_id)
+    followings.include?(user_id)
+  end
 end

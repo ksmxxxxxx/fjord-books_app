@@ -9,11 +9,11 @@ class UsersController < ApplicationController
   def show; end
 
   def followings
-    @followings = @user.followings
+    @followings = @user.followings.with_attached_avatar.order(:id)
   end
 
   def followers
-    @followers = @user.followers
+    @followers = @user.followers.with_attached_avatar.order(:id)
   end
 
   private

@@ -36,14 +36,14 @@ p
 - unless @user == current_user
   p
     - if current_user.following?(@user)
-      = button_to 'Unfollow', following_path, method: :delete
+      = button_to "#{t('views.common.button.unfollow')}", following_path, method: :delete
     - else
-      = button_to 'Follow', followings_path, method: :post
+      = button_to "#{t('views.common.button.following')}", followings_path, method: :post
 
 p
-  = link_to "#{@user.followings.count} Following", followings_user_path
+  = link_to "#{@user.followings.count} #{User.human_attribute_name(:followings)}", followings_user_path
 p
-  = link_to "#{@user.followers.count} Followers", followers_user_path
+  = link_to "#{@user.followers.count} #{User.human_attribute_name(:followers)}", followers_user_path
 
 - if current_user == @user
   = link_to t('views.common.edit'), edit_user_registration_path

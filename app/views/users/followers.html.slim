@@ -1,11 +1,11 @@
 nav
   ul
-    li = link_to 'ユーザー詳細へもどる', user_path
+    li = link_to "#{t('views.common.back_to_user')}", user_path
 section
   .container
     .row
       .col-12
-        h1 Followers
+        h1 = User.human_attribute_name(:followers)
 
         - @followers.each do |follower|
           .card.mb-4

@@ -41,8 +41,7 @@ p
       = button_to 'Follow', followings_path, method: :post
 
 p
-  | Following&nbsp;:&nbsp;
-  = @user.followings.count
+  = link_to "#{@user.followings.count} Following", followings_user_path
 p
   | Follower&nbsp;:&nbsp;
   = @user.followers.count

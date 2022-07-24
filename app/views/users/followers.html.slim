@@ -1,0 +1,21 @@
+nav
+  ul
+    li = link_to 'ユーザー詳細へもどる', user_path
+section
+  .container
+    .row
+      .col-12
+        h1 Followers
+
+        - @followers.each do |follower|
+          .card.mb-4
+            .card-body
+              .card-title.d-flex.align-items-center
+                - if follower.avatar.present?
+                  = follower.avatar
+                - else
+                  .me-3
+                    = image_tag 'https://placehold.jp/50x50.png'
+                = follower.name
+              .carf-text
+                = follower.self_introduction

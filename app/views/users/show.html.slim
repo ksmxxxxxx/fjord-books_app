@@ -43,8 +43,7 @@ p
 p
   = link_to "#{@user.followings.count} Following", followings_user_path
 p
-  | Follower&nbsp;:&nbsp;
-  = @user.followers.count
+  = link_to "#{@user.followers.count} Followers", followers_user_path
 
 - if current_user == @user
   = link_to t('views.common.edit'), edit_user_registration_path

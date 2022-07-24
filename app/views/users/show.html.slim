@@ -33,9 +33,12 @@ p
     br
     = image_tag @user.avatar.variant(resize_to_fill: [150, 150])
 
-p
-  = button_to 'Follow', followings_path, method: :post
-  = button_to 'Unfollow', following_path, method: :delete
+- unless @user == current_user
+  p
+    - if current_user.following?(@user)
+      = button_to 'Unfollow', following_path, method: :delete
+    - else
+      = button_to 'Follow', followings_path, method: :post
 
 p
   | Following&nbsp;:&nbsp;

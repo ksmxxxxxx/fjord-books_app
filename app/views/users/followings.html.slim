@@ -7,15 +7,18 @@ section
       .col-12
         h1 = User.human_attribute_name(:followings)
 
-        - @followings.each do |following|
-          .card.mb-4
-            .card-body
-              .card-title.d-flex.align-items-center
-                - if following.avatar.present?
-                  = following.avatar
-                - else
-                  .me-3
-                    = image_tag 'https://placehold.jp/50x50.png'
-                = following.name
-              .carf-text
-                = following.self_introduction
+        - if @user.followings.count > 0
+          - @followings.each do |following|
+            .card.mb-4
+              .card-body
+                .card-title.d-flex.align-items-center
+                  - if following.avatar.present?
+                    = following.avatar
+                  - else
+                    .me-3
+                      = image_tag 'https://placehold.jp/50x50.png'
+                  = following.name
+                .carf-text
+                  = following.self_introduction
+        - else
+          p フォローしている人はまだいません

@@ -2,6 +2,7 @@
 
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
+  before_action :author_of_report?, only: %i[edit update destroy]
 
   # GET /reports or /reports.json
   def index
@@ -67,5 +68,10 @@ class ReportsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def report_params
     params.require(:report).permit(:title, :content)
+  end
+
+  def author_of_report?
+    @report = current_user.reports.find_by(id: params[:id])
+    redirect_to reports_path, alert: '投稿したユーザーのみ実行できる操作です' if @report.nil?
   end
 end

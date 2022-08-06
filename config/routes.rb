@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :comments
-  resources :reports, only: %i[index show create] do
-    resources :comments, only: %i[create destroy]
+  resources :reports do
+    resources :comments
   end
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   devise_for :users

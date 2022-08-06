@@ -28,12 +28,12 @@ html
           span.navbar-text
             = t('.sign_in_as', email: current_user.email)
 
-        - if notice.present?
-          p#notice
-            = notice
-        - if alert.present?
-          p#alert
-            = alert
+      - if notice.present?
+        p#notice
+          = notice
+      - if alert.present?
+        p#alert
+          = alert
 
     .mt-4.container
       = yield

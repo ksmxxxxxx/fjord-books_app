@@ -2,8 +2,7 @@
 
 class FollowingsController < ApplicationController
   def create
-    current_user.follow(params[:id])
-    if current_user.save
+    if current_user.follow(params[:id])
       redirect_to user_path
     else
       redirect_to user_path, notice: t('controllers.common.notice_already_following')
@@ -11,7 +10,10 @@ class FollowingsController < ApplicationController
   end
 
   def destroy
-    current_user.unfollow(params[:id])
-    redirect_to user_path
+    if current_user.unfollow(params[:id])
+      redirect_to user_path
+    else
+      redirect_to user_path, notice: t('controllers.common.notice_already_unfollowed')
+    end
   end
 end

@@ -25,11 +25,11 @@ class User < ApplicationRecord
            source: :follower
 
   def follow(followed_user_id)
-    active_relationships.create(followed_id: followed_user_id)
+    active_relationships.create(followed_id: followed_user_id).valid?
   end
 
   def unfollow(followed_user_id)
-    active_relationships.find_by!(followed_id: followed_user_id).destroy if following?(User.find_by!(id: followed_user_id))
+    return active_relationships.find_by!(followed_id: followed_user_id).destroy if following?(User.find_by!(id: followed_user_id))
   end
 
   def following?(user)

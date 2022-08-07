@@ -5,7 +5,7 @@ class FollowingsController < ApplicationController
     if current_user.follow(params[:id])
       redirect_to user_path
     else
-      redirect_to user_path, notice: t('controllers.common.notice_already_following')
+      redirect_to user_path, notice: t('controllers.users.notice_already_following')
     end
   end
 
@@ -13,7 +13,7 @@ class FollowingsController < ApplicationController
     if current_user.unfollow(params[:id])
       redirect_to user_path
     else
-      redirect_to user_path, notice: t('controllers.common.notice_already_unfollowed')
+      redirect_to user_path, notice: t('controllers.users.notice_already_unfollowed')
     end
   end
 end

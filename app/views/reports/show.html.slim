@@ -24,3 +24,5 @@ h2 = t('comment')
       = link_to comment.user.email, comment.user
     | &nbsp;|&nbsp;
     = comment.created_at
+
+= render partial: 'comments/form', locals: { commentable: @report } 

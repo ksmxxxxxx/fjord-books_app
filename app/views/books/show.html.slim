@@ -23,3 +23,15 @@ p
 = link_to t('views.common.edit'), edit_book_path(@book)
 |  | 
 = link_to t('views.common.back'), books_path
+
+- @book.comments.each do |comment|
+  p = comment.content
+  div
+    - if comment.user.name.present?
+      = link_to comment.user.name, comment.user
+    - else
+      = link_to comment.user.email, comment.user
+    | &nbsp;|&nbsp;
+    = comment.created_at
+
+= render partial: 'comments/form', locals: { commentable: @book }

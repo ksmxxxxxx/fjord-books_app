@@ -26,7 +26,8 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to report_url, notice: 'Comment was successfully created.' }
+        binding.irb
+        format.html { redirect_to @commentable, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new, status: :unprocessable_entity }

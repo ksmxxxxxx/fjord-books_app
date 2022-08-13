@@ -13,7 +13,7 @@ p
   | &nbsp;|&nbsp;
 = link_to "Back", reports_path
 
-h2 = t('comment')
+h2 = Comment.model_name.human
 
 - @report.comments.each do |comment|
   p = comment.content

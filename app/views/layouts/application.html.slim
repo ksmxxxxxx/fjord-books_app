@@ -18,6 +18,8 @@ html
           = link_to Book.model_name.human, books_path
         li
           = link_to User.model_name.human, users_path
+        li
+          = link_to Report.model_name.human, reports_path
       .title
         = t('.sign_in_as', email: current_user.email)
       ul

@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       book: 本  #g
+      user: ユーザー
 
     attributes:
       book:
@@ -9,3 +10,10 @@ ja:
         memo: メモ  #g
         picture: 画像  #g
         title: 題名  #g
+      user:
+        name: ユーザー名
+        email: メールアドレス
+        address: 住所
+        zipcode: 郵便番号
+        description: 自己紹介
+        registered_date: 登録日

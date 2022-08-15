@@ -7,6 +7,7 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+        not_saved: "%{count}件のエラーがあり、保存できませんでした"
   date:
     abbr_day_names:
     - 日
@@ -207,12 +208,16 @@ ja:
     pm: 午後
   views:
     common:
+      sign_out: ログアウト
+      actions: 操作
       show: 詳細
       edit: 編集
       destroy: 削除
       new: 新規作成
       back: 戻る
       delete_confirm: よろしいですか？
+      title_index: "%{name}の一覧"
+      title_show: "%{name}の詳細情報"
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
     pagination:

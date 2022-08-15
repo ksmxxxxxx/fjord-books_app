@@ -1,0 +1,17 @@
+h1= t('views.common.title_index', name: User.model_name.human)
+  
+- @users.each do |user|
+  .card.my-3
+    .card-body
+      h2.h5.card-title = user.name
+      p.card-text = user.description
+    - if current_user
+      .card-footer
+        .d-flex.justify-content-between.align-items-center.flex-wrap
+          small
+            span.pe-2.fw-bold
+              = User.human_attribute_name(:registered_date)
+            time.text-muted= l user.created_at, formats: :default
+          = link_to('詳細', user_path(user.id), class: 'btn btn-primary')
+section
+  = paginate @users

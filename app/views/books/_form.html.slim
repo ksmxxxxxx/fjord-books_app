@@ -1,0 +1,25 @@
+= form_with(model: book, local: true) do |form|
+  - if book.errors.any?
+    .alert.alert-danger
+
+      h2.h6.fw-bold
+        = t('activerecord.errors.messages.not_saved', count: book.errors.count)
+      ul.mb-0
+        - book.errors.full_messages.each do |message|
+          li
+            = message
+
+  .mb-3
+    = form.label :title, class: 'form-label'
+    = form.text_field :title, class: 'form-control'
+  .mb-3
+    = form.label :memo, class: 'form-label'
+    = form.text_area :memo, class: 'form-control'
+  .mb-3
+    = form.label :author, class: 'form-label'
+    = form.text_field :author, class: 'form-control'
+  .mb-3
+    = form.label :picture, class: 'form-label'
+    = form.file_field :picture, class: 'form-control'
+  .mb-3.d-flex.justify-content-start
+    = form.submit class: 'btn btn-primary'

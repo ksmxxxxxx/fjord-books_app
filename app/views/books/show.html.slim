@@ -24,6 +24,8 @@ p
 |  | 
 = link_to t('views.common.back'), books_path
 
+h2 = Comment.model_name.human
+
 - @book.comments.each do |comment|
   p = comment.content
   div
@@ -33,5 +35,13 @@ p
       = link_to comment.user.email, comment.user
     | &nbsp;|&nbsp;
     = comment.created_at
+    div
+      - if current_user.id == comment.user.id
+        = link_to t('views.common.edit'), edit_book_comment_path(@book, comment.id)
+        | |
+        = link_to t('views.common.destroy'), book_comment_path(@book, comment.id), data: {confirm: t('views.common.delete_confirm')}, method: :delete
 
-= render partial: 'comments/form', locals: { commentable: @book }
+= form_with(model: [@book, @comment], local: true) do |form|
+  = form.label :content
+  = form.text_area :content
+  = form.submit

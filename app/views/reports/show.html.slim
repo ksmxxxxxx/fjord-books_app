@@ -32,5 +32,5 @@ h2 = Comment.model_name.human
 
 = form_with(model: [@report, @comment], local: true) do |form|
   = form.label :content
-  = form.text_area :content
+  = form.text_area :content, required: true
   = form.submit

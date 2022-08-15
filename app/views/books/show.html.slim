@@ -43,5 +43,5 @@ h2 = Comment.model_name.human
 
 = form_with(model: [@book, @comment], local: true) do |form|
   = form.label :content
-  = form.text_area :content
+  = form.text_area :content, required: true
   = form.submit

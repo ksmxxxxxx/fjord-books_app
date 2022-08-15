@@ -1,0 +1,24 @@
+nav
+  ul
+    li = link_to "#{t('views.common.back_to_user')}", user_path
+section
+  .container
+    .row
+      .col-12
+        h1 = User.human_attribute_name(:followings)
+
+        - if @user.followings.count > 0
+          - @followings.each do |following|
+            .card.mb-4
+              .card-body
+                .card-title.d-flex.align-items-center
+                  - if following.avatar.present?
+                    = following.avatar
+                  - else
+                    .me-3
+                      = image_tag 'https://placehold.jp/50x50.png'
+                  = following.name
+                .carf-text
+                  = following.self_introduction
+        - else
+          p フォローしている人はまだいません

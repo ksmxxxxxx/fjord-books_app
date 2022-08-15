@@ -34,6 +34,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'awesome_print'
   gem 'faker'
   gem 'i18n_generators'
   gem 'letter_opener_web'
@@ -61,5 +62,6 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'kaminari'
 gem 'net-smtp'
+gem 'slim'
 
 gem 'image_processing', '~> 1.2'

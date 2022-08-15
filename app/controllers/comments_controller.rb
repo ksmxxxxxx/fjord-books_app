@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to polymorphic_url(@commentable), notice: 'Comment was successfully created.' }
+        format.html { redirect_to polymorphic_url(@commentable), notice: t('controllers.common.notice_create', name: Comment.model_name.human) }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to polymorphic_url(@commentable), notice: 'Comment was successfully updated.' }
+        format.html { redirect_to polymorphic_url(@commentable), notice: t('controllers.common.notice_update', name: Comment.model_name.human) }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -49,7 +49,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to polymorphic_url(@commentable), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human) }
       format.json { head :no_content }
     end
   end

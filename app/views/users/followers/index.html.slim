@@ -1,9 +1,0 @@
-h1
-  = t('.title')
-p
-  = User.model_name.human
-  | : 
-  = link_to @user.name, @user
-= render 'users/users', users: @followers
-= paginate @followers
-= link_to t('views.common.back'), @user

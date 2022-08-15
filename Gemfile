@@ -61,7 +61,5 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'kaminari'
 gem 'net-smtp'
-gem 'slim'
-gem 'slim-rails'
 
 gem 'image_processing', '~> 1.2'

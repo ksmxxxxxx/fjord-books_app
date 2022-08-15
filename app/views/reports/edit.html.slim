@@ -1,0 +1,7 @@
+h1 = t('views.common.title_edit', name: Report.model_name.human)
+
+= render "form"
+
+=> link_to t('views.common.show'), @report
+'|
+=< link_to t('views.common.back'), reports_path

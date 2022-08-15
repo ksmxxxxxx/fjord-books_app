@@ -1,0 +1,4 @@
+h1
+  = User.model_name.human
+= render 'users/users', users: @users
+= paginate @users

@@ -1,0 +1,37 @@
+h1
+  = t('views.common.title_show', name: Book.model_name.human)
+p
+  strong
+    = Book.human_attribute_name(:title)
+    | :
+  = @book.title
+p
+  strong
+    = Book.human_attribute_name(:memo)
+    | :
+  = @book.memo
+p
+  strong
+    = Book.human_attribute_name(:author)
+    | :
+  = @book.author
+p
+  strong
+    = Book.human_attribute_name(:picture)
+    | :
+  = image_tag(@book.picture_url) if @book.picture.present?
+= link_to t('views.common.edit'), edit_book_path(@book)
+|  | 
+= link_to t('views.common.back'), books_path
+
+- @book.comments.each do |comment|
+  p = comment.content
+  div
+    - if comment.user.name.present?
+      = link_to comment.user.name, comment.user
+    - else
+      = link_to comment.user.email, comment.user
+    | &nbsp;|&nbsp;
+    = comment.created_at
+
+= render partial: 'comments/form', locals: { commentable: @book }

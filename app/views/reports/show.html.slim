@@ -15,19 +15,22 @@ p
 
 h2 = Comment.model_name.human
 
-- @report.comments.each do |comment|
-  p = comment.content
-  div
-    - if comment.user.name.present?
-      = link_to comment.user.name, comment.user
-    - else
-      = link_to comment.user.email, comment.user
-    | &nbsp;|&nbsp;
-    = comment.created_at
+- if @report.comments.count > 0
+  - @report.comments.each do |comment|
+    p = comment.content
     div
-      - if current_user.id == comment.user.id
-        = link_to t('views.common.edit'), edit_report_comment_path(@report, comment.id)
-        | |
-        = link_to t('views.common.destroy'), report_comment_path(@report, comment.id), data: {confirm: t('views.common.delete_confirm')}, method: :delete
+      - if comment.user.name.present?
+        = link_to comment.user.name, comment.user
+      - else
+        = link_to comment.user.email, comment.user
+      | &nbsp;|&nbsp;
+      = comment.created_at
+      div
+        - if current_user.id == comment.user.id
+          = link_to t('views.common.edit'), edit_report_comment_path(@report, comment.id)
+          | |
+          = link_to t('views.common.destroy'), report_comment_path(@report, comment.id), data: {confirm: t('views.common.delete_confirm')}, method: :delete
+- else
+  p = t('controllers.common.comment_not_yet')
 
-= render partial: 'comments/form', locals: { commentable: @commentable }
+= render partial: 'comments/form', locals: { commentable: @report }

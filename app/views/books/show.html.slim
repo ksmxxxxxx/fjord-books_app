@@ -26,19 +26,22 @@ p
 
 h2 = Comment.model_name.human
 
-- @book.comments.each do |comment|
-  p = comment.content
-  div
-    - if comment.user.name.present?
-      = link_to comment.user.name, comment.user
-    - else
-      = link_to comment.user.email, comment.user
-    | &nbsp;|&nbsp;
-    = comment.created_at
+- if @book.comments.count > 0
+  - @book.comments.each do |comment|
+    p = comment.content
     div
-      - if current_user.id == comment.user.id
-        = link_to t('views.common.edit'), edit_book_comment_path(@book, comment.id)
-        | |
-        = link_to t('views.common.destroy'), book_comment_path(@book, comment.id), data: {confirm: t('views.common.delete_confirm')}, method: :delete
+      - if comment.user.name.present?
+        = link_to comment.user.name, comment.user
+      - else
+        = link_to comment.user.email, comment.user
+      | &nbsp;|&nbsp;
+      = comment.created_at
+      div
+        - if current_user.id == comment.user.id
+          = link_to t('views.common.edit'), edit_book_comment_path(@book, comment.id)
+          | |
+          = link_to t('views.common.destroy'), book_comment_path(@book, comment.id), data: {confirm: t('views.common.delete_confirm')}, method: :delete
+- else
+  p = t('controllers.common.comment_not_yet')
 
 = render partial: 'comments/form', locals: { commentable: @book }

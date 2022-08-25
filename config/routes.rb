@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :books do
     resources :comments, module: :books, only: %i[create edit update destroy]
   end
-  resources :comments, only: %i[edit show update destroy]
+  resources :comments, only: %i[edit update destroy]
   resources :reports do
     resources :comments, module: :reports, only: %i[create edit update destroy]
   end

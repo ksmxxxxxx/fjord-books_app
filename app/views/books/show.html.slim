@@ -24,24 +24,29 @@ p
 |  | 
 = link_to t('views.common.back'), books_path
 
-h2 = Comment.model_name.human
+article.comments
+  header.comments__header
+    h2 = Comment.model_name.human
 
-- if @book.comments.count > 0
-  - @book.comments.each do |comment|
-    p = comment.content
-    div
-      - if comment.user.name.present?
-        = link_to comment.user.name, comment.user
-      - else
-        = link_to comment.user.email, comment.user
-      | &nbsp;|&nbsp;
-      = comment.created_at
-      div
-        - if current_user.id == comment.user.id
-          = link_to t('views.common.edit'), edit_book_comment_path(@book, comment.id)
-          | |
-          = link_to t('views.common.destroy'), book_comment_path(@book, comment.id), data: {confirm: t('views.common.delete_confirm')}, method: :delete
-- else
-  p = t('controllers.common.comment_not_yet')
+  section.comments__body
+    - if @book.comments.count > 0
+      - @book.comments.each do |comment|
+        .comment
+          .comment__start
+          p = comment.content
+          .comment__end
+            - if comment.user.name.present?
+              = link_to comment.user.name, comment.user
+            - else
+              = link_to comment.user.email, comment.user
+            | &nbsp;|&nbsp;
+            = l comment.created_at, format: :long
+          - if current_user.id == comment.user.id
+            .comment-edit_and_destroy
+              = link_to t('views.common.edit'), edit_book_comment_path(@book, comment.id)
+              = link_to t('views.common.destroy'), book_comment_path(@book, comment.id), data: {confirm: t('views.common.delete_confirm')}, method: :delete
+    - else
+      p = t('controllers.common.comment_not_yet')
+  footer.comments_footer
 
 = render partial: 'comments/form', locals: { commentable: @book }

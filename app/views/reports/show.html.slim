@@ -1,36 +1,36 @@
 p#alert = alert
 
-p
-  strong Title:
-  = @report.title
+section.report
+  header.report__header
+    h2.report__title = @report.title
+    time.report__created_at = l @report.created_at, format: :long
+  p.report__body = @report.content
+  - if current_user.id == @report.user_id
+    footer.report__footer
+      = link_to t('views.common.edit'), edit_report_path(@report)
+      = link_to t('views.common.back'), reports_path
 
-p
-  strong Content:
-  = @report.content
-
-- if current_user.id == @report.user_id
-  = link_to t('views.common.edit'), edit_report_path(@report)
-  | &nbsp;|&nbsp;
-= link_to t('views.common.back'), reports_path
-
-h2 = Comment.model_name.human
-
-- if @report.comments.count > 0
-  - @report.comments.each do |comment|
-    p = comment.content
-    div
-      - if comment.user.name.present?
-        = link_to comment.user.name, comment.user
-      - else
-        = link_to comment.user.email, comment.user
-      | &nbsp;|&nbsp;
-      = comment.created_at
-      div
-        - if current_user.id == comment.user.id
-          = link_to t('views.common.edit'), edit_report_comment_path(@report, comment.id)
-          | |
-          = link_to t('views.common.destroy'), report_comment_path(@report, comment.id), data: {confirm: t('views.common.delete_confirm')}, method: :delete
-- else
-  p = t('controllers.common.comment_not_yet')
-
-= render partial: 'comments/form', locals: { commentable: @report }
+article.comments
+  header.comments__header
+    h3 = Comment.model_name.human
+  section.comments__body
+    - if @report.comments.count > 0
+      - @report.comments.each do |comment|
+        .comment
+          .comment__start
+            p = comment.content
+          .comment__end
+            - if comment.user.name.present?
+              = link_to comment.user.name, comment.user
+            - else
+              = link_to comment.user.email, comment.user
+            | &nbsp;|&nbsp;
+            = l comment.created_at, format: :long
+          - if current_user.id == comment.user.id
+            .comment-edit_and_destroy
+              = link_to t('views.common.edit'), edit_report_comment_path(@report, comment.id)
+              = link_to t('views.common.destroy'), report_comment_path(@report, comment.id), data: {confirm: t('views.common.delete_confirm')}, method: :delete
+    - else
+      p = t('controllers.common.comment_not_yet')
+  footer.comments_footer
+    = render partial: 'comments/form', locals: { commentable: @report }

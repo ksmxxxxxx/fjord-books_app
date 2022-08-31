@@ -4,7 +4,9 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
 
   # GET /comments/1/edit
-  def edit; end
+  def edit
+    redirect_to polymorphic_url(@commentable), alert: '投稿したユーザーのみ実行できる操作です' unless @comment.user_id == current_user.id
+  end
 
   # POST /comments or /comments.json
   def create
@@ -29,9 +31,13 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1 or /comments/1.json
   def destroy
-    @comment.destroy
+    if @comment.user_id == current_user.id
+      @comment.destroy
 
-    redirect_to polymorphic_url(@commentable), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
+      redirect_to polymorphic_url(@commentable), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
+    else
+      redirect_to polymorphic_url(@commentable), alert: '投稿したユーザーのみ実行できる操作です'
+    end
   end
 
   private

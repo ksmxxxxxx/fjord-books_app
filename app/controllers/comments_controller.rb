@@ -14,8 +14,7 @@ class CommentsController < ApplicationController
 
   # POST /comments or /comments.json
   def create
-    @comment = @commentable.comments.build(comment_params)
-    @comment.user_id = current_user.id
+    @comment = @commentable.build_comment(comment_params, current_user.id)
 
     if @comment.save
       redirect_to polymorphic_url(@commentable), notice: t('controllers.common.notice_create', name: Comment.model_name.human)

@@ -3,6 +3,10 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
 
+  def new
+    @comment = Comment.new
+  end
+
   # GET /comments/1/edit
   def edit
     redirect_to polymorphic_url(@commentable), alert: '投稿したユーザーのみ実行できる操作です' unless @comment.user_id == current_user.id

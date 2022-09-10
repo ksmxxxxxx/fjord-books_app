@@ -63,6 +63,6 @@ class ReportsController < ApplicationController
 
   def authorize
     @report = current_user.reports.find_by(id: params[:id])
-    redirect_to reports_path, alert: '投稿したユーザーのみ実行できる操作です' if @report.nil?
+    redirect_to reports_path, alert: t('controllers.common.notice_alert') if @report.nil?
   end
 end

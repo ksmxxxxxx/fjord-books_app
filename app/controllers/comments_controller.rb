@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
-    redirect_to polymorphic_url(@commentable), alert: '投稿したユーザーのみ実行できる操作です' unless @comment.user_id == current_user.id
+    redirect_to polymorphic_url(@commentable), alert: t('controllers.common.notice_alert') unless @comment.user_id == current_user.id
   end
 
   # POST /comments or /comments.json
@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
 
       redirect_to polymorphic_url(@commentable), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
     else
-      redirect_to polymorphic_url(@commentable), alert: '投稿したユーザーのみ実行できる操作です'
+      redirect_to polymorphic_url(@commentable), alert: t('controllers.common.notice_alert')
     end
   end
 

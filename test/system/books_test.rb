@@ -12,38 +12,43 @@ class BooksTest < ApplicationSystemTestCase
     click_button 'ログイン'
   end
 
-  test 'visiting the index' do
+  test 'Visiting the index' do
     visit books_url
     assert_selector 'h1', text: '本'
   end
 
-  test 'creating a Book' do
+  test 'Creating a Book' do
     visit books_url
     click_on '新規作成'
 
-    fill_in 'メモ', with: @book.memo
-    fill_in 'タイトル', with: @book.title
+    fill_in 'タイトル', with: '七日七夜'
+    fill_in 'メモ', with: '春休みたまご遺失。委員ゆるむがいよう。ぞくごちきゅう交錯。'
     click_on '登録する'
 
+    assert_text '七日七夜'
+    assert_text '春休みたまご遺失。委員ゆるむがいよう。ぞくごちきゅう交錯。'
     assert_text '本が作成されました。'
-    click_on '戻る'
   end
 
-  test 'updating a Book' do
+  test 'Updating a Book' do
     visit books_url
+
     within('table') do
       click_on '編集', match: :first
     end
 
-    fill_in 'メモ', with: @book.memo
-    fill_in 'タイトル', with: @book.title
+    fill_in 'タイトル', with: '雉子のはなし'
+    fill_in 'メモ', with: 'だくりゅうちかくしえんする。おどろくかいぼうず。おどろくころす店。'
     click_on '更新する'
 
+    assert_text '雉子のはなし'
+    assert_text 'だくりゅうちかくしえんする。おどろくかいぼうず。おどろくころす店。'
     assert_text '本が更新されました。'
+
     click_on '戻る'
   end
 
-  test 'destroying a Book' do
+  test 'Destroying a Book' do
     visit books_url
     page.accept_confirm do
       within('table') do

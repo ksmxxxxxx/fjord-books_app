@@ -1,0 +1,11 @@
+relationship1:
+  follower: carol
+  following: bob
+
+relationship2:
+  follower: dave
+  following: bob
+
+relationship3:
+  follower: alice
+  following: carol

@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 day1:
-  user_id: 1
+  user: alice
   title: '孤島の鬼'
   content: '失うけいけんしゃちゅうもんする。廉価とりあえず窒息。当て字米兵しょうかする。'
   created_at: <%= Date.today %>

@@ -4,7 +4,7 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    @report = reports(:day1)
+    @report_by_bob = reports(:report_by_bob)
 
     visit root_url
 
@@ -37,7 +37,7 @@ class ReportsTest < ApplicationSystemTestCase
 
     click_link '詳細', match: :first
 
-    assert_text @report.title
+    assert_text @report_by_bob.title
 
     click_link '戻る'
   end

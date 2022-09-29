@@ -9,21 +9,21 @@ class UserTest < ActiveSupport::TestCase
     @they = users(:bob)
   end
 
-  test 'login_with_email_or_name' do
+  test 'Login with email or name' do
     assert_equal 'alice@example.com', @user.name_or_email
 
     @user.name = 'Alice'
     assert_equal 'Alice', @user.name_or_email
   end
 
-  test 'user_can_follow' do
+  test 'User can follow' do
     assert_not @me.following?(@they)
     @me.follow(@they)
 
     assert @me.following?(@they)
   end
 
-  test 'user_can_unfollow' do
+  test 'User can unfollow' do
     assert_not @me.following?(@they)
     @me.follow(@they)
 
@@ -32,7 +32,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not @me.following?(@they)
   end
 
-  test 'user_can_check_to_see_if_they_are_being_followed' do
+  test 'User can check to see if they are being followed' do
     assert_not @me.followed_by?(@they)
     @they.follow(@me)
 

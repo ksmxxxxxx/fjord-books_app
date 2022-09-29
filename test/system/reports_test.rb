@@ -45,8 +45,7 @@ class ReportsTest < ApplicationSystemTestCase
   test 'Updating a report' do
     visit reports_url
 
-    click_link '詳細', match: :first
-    click_link '編集'
+    find('table').click_link('編集')
     fill_in 'タイトル', with: 'はりいひきざん高値'
     fill_in '内容', with: '重い秘める既に。壮年りゅうこうごたいやく。終点めいしょさいほう。'
     click_button '更新する'

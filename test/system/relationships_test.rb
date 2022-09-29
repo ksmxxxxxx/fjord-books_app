@@ -12,7 +12,7 @@ class RelationshipsTest < ApplicationSystemTestCase
   end
 
   test 'Show all follower list' do
-    visit "/users/#{users(:alice).id}"
+    visit user_path(users(:alice))
     assert_selector 'h1', text: 'ユーザの詳細'
 
     click_link 'フォロワー'
@@ -20,7 +20,7 @@ class RelationshipsTest < ApplicationSystemTestCase
   end
 
   test 'Show all following list' do
-    visit "/users/#{users(:bob).id}"
+    visit user_path(users(:bob))
     assert_selector 'h1', text: 'ユーザの詳細'
 
     click_link 'フォロー'
@@ -28,7 +28,7 @@ class RelationshipsTest < ApplicationSystemTestCase
   end
 
   test 'Following user' do
-    visit "/users/#{users(:bob).id}"
+    visit user_path(users(:bob))
     assert_selector 'h1', text: 'ユーザの詳細'
 
     find_button('フォローする').click
@@ -36,7 +36,7 @@ class RelationshipsTest < ApplicationSystemTestCase
   end
 
   test 'Unfollow user' do
-    visit "/users/#{users(:carol).id}"
+    visit user_path(users(:carol))
     assert_selector 'h1', text: 'ユーザの詳細'
 
     find_button('フォロー解除する').click

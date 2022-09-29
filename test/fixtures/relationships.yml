@@ -1,11 +1,3 @@
-relationship1:
-  follower: carol
-  following: bob
-
-relationship2:
-  follower: dave
-  following: bob
-
-relationship3:
+already_followed:
   follower: alice
   following: carol

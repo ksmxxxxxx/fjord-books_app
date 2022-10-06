@@ -38,8 +38,6 @@ class ReportsTest < ApplicationSystemTestCase
     click_link '詳細', match: :first
 
     assert_text @report_by_bob.title
-
-    click_link '戻る'
   end
 
   test 'Updating a report' do

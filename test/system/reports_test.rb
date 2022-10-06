@@ -55,7 +55,7 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text '日報が更新されました。'
   end
 
-  test 'Destroing a report' do
+  test 'Destroying a report' do
     visit reports_url
 
     page.accept_confirm do

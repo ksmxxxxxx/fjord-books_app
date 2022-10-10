@@ -3,7 +3,21 @@
 require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @user = users(:alice)
+    @report_by_alice = reports(:report_by_alice)
+    @report_by_bob = reports(:report_by_bob)
+  end
+
+  test 'Check to writer is alice' do
+    assert @report_by_alice.editable?(@user)
+  end
+
+  test 'Check to writer is not alice' do
+    assert_not @report_by_bob.editable?(@user)
+  end
+
+  test 'Convert to date format' do
+    assert_equal reports(:report_by_alice).created_at.to_date, @report_by_alice.created_on
+  end
 end
